@@ -8,9 +8,8 @@
 		"clangd.arguments": [
 			"--compile-commands-dir=${workspaceFolder}/.cmake-build"
 		],
-		"cmake.buildDirectory": "${workspaceFolder}/.cmake-build",
 		"files.exclude": {
 			".cmake-build": true,
-		}
+		},
 	}
 }
