@@ -19,11 +19,10 @@
       perSystem = { config, self', inputs', pkgs, system, ... }:
       let
         mypkgs = [
-          pkgs.clang-tools
-          pkgs.clang
+          pkgs.gcc
           pkgs.fmt
           pkgs.cmake
-          pkgs.qtcreator
+          pkgs.gnumake
         ];
         mypath = pkgs.lib.makeBinPath mypkgs;
         mylink = pkgs.lib.makeLibraryPath mypkgs;
@@ -36,10 +35,6 @@
         packages.default = pkgs.hello;
         devShells.default = pkgs.mkShell {
           buildInputs = mypkgs;
-          shellHook = ''
-            export LD_LIBRARY_PATH=${mylink}
-            # export PATH=${mypath}
-          '';
         };
       };
       flake = {
